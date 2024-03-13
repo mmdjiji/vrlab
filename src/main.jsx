@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Lab1 from './Lab1.jsx'
@@ -8,11 +8,11 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 const router = createHashRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Suspense fallback={<p>Loading</p>}><App /></Suspense>
   },
   {
     path: '/lab1',
-    element: <Lab1 />,
+    element: <Suspense fallback={<p>Loading</p>}><Lab1 /></Suspense>
   }
 ]);
 
