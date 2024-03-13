@@ -4,7 +4,7 @@ function App() {
       <div style={{textAlign: 'center'}} >
         <h1>VRLab by JiJi</h1>
         <div>
-          <a href="lab1">
+          <a href="#lab1">
             Lab1
           </a>
           {/* &nbsp;&nbsp;

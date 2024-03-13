@@ -22,7 +22,7 @@ npm run dev
 
 ## Lab1
 
-[在线演示](https://jiji.pro/vrlab/lab1)
+[在线演示](https://jiji.pro/vrlab/#lab1)
 
 ### 实验内容
 
