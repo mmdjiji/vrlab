@@ -32,6 +32,8 @@ npm run dev
 
 ### 效果截图
 
+![Lab1](assets/lab1.png)
+
 ### 方法
 
 首先先建立一个 3D 模型，我选择在 https://readyplayer.me 中建立一个人物的 3D 模型用于学习如何使用 Three.js 渲染。
