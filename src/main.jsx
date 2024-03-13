@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Lab1 from './Lab1.jsx'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 
-const baseURL = '/vrlab';
-
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: baseURL + '/',
+    path: '/',
     element: <App />,
   },
   {
-    path: baseURL + '/lab1',
+    path: '/lab1',
     element: <Lab1 />,
   }
 ]);
