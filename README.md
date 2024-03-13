@@ -14,7 +14,7 @@
 ## 复现方法
 
 ```bash
-git clone https://mmdjiji.com/vrlab
+git clone https://github.com/mmdjiji/vrlab
 cd vrlab
 npm install
 npm run dev
