@@ -69,3 +69,45 @@ const model = useLoader(
   <Orbit />
 </Canvas>
 ```
+
+## Lab2
+
+[在线演示](https://jiji.pro/vrlab/#lab2)
+
+### 实验内容
+
+设计一个三维场景，实现尽可能真实绘制
+
+### 效果截图
+
+![Lab2](assets/lab2.png)
+
+### 方法
+
+首先创建天空，Three.js 中包含天空的标准实现：
+```js
+import { Sky } from '@react-three/drei';
+<Sky scale={1000} sunPosition={[500, -20, -1000]} turbidity={0.1} />
+```
+
+我在 https://sketchfab.com 上下载了一些资源模型，例如地板、落地灯、指示牌和病床，把它们加载进来：
+
+```js
+const floor = useLoader(GLTFLoader, "/vrlab/floor.glb");
+const tip = useLoader(GLTFLoader, "/vrlab/tip.glb");
+const lamp = useLoader(GLTFLoader, "/vrlab/lamp.glb");
+const bed = useLoader(GLTFLoader, "/vrlab/bed.glb");
+```
+
+使用 `<mesh>` 标签把它们呈现在画面中，并调整一个合适的布局。由于我并不是学习美术的所以放置的位置可能并不具有很强的艺术性，但合理可用于学习即可。
+
+之后给落地灯添加一个点光源，我这里设置的是每次打开页面的时候亮度自动随机生成，这样就可以看到不同亮度的效果了。
+
+```js
+<pointLight
+  position={[2, 4, 2]}
+  decay={Math.random() * 2}
+  intensity={Math.PI}
+/>
+```
+

@@ -11,10 +11,10 @@ function App() {
               Lab1
             </a>
             
-            {/* &nbsp;&nbsp;
-            <a href="lab2">
+            &nbsp;&nbsp;
+            <a href="#lab2">
               Lab2
-            </a> */}
+            </a>
           </div>
           <br></br>
           Repo: <a href="https://github.com/mmdjiji/vrlab">https://github.com/mmdjiji/vrlab</a>
