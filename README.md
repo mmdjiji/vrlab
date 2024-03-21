@@ -110,4 +110,3 @@ const bed = useLoader(GLTFLoader, "/vrlab/bed.glb");
   intensity={Math.PI}
 />
 ```
-
