@@ -110,3 +110,75 @@ const bed = useLoader(GLTFLoader, "/vrlab/bed.glb");
   intensity={Math.PI}
 />
 ```
+
+## Lab3
+
+[在线演示](https://jiji.pro/vrlab/#lab3)
+
+### 实验内容
+
+设计一个三位动画短片，内容自选。
+
+### 效果截图
+
+![Lab3](assets/lab3.png)
+
+### 方法
+
+为了让 mesh 运动，可以采用帧动画的方式：
+
+```js
+useFrame(({ clock }) => {
+  const a = clock.getElapsedTime();
+  console.log(a);
+});
+```
+
+我们直接重写 useFrame 回调函数，在每次渲染过程发生时，这个函数就会被自动执行。
+
+clock 是系统时钟，通过它可以获取一个相对时间，以便于我们实现动画。
+
+下面我们尝试让 [Lab2](#lab2) 中的日出日落动起来，首先需要把 `<Sky>` 抽象出来：
+
+```js
+const MySun = () => {
+  const mesh = useRef();
+  return (
+    <Sky ref={mesh} scale={1000} turbidity={0.1} />
+  );
+}
+```
+
+然后针对它的属性编写代码修改：
+```js
+useFrame(({ clock }) => {
+  const a = clock.getElapsedTime() / 2;
+  const x = Math.sin(a) * 1000;
+  const y = Math.cos(a) * 1000;
+  const z = Math.sin(a) * 1000;
+  mesh.current.material.uniforms.sunPosition.value = [x, y, z]
+});
+```
+
+为了让它实现往复运动，使用三角函数的方式可以最大化简化动画逻辑，且优雅。这样就能实现太阳的东升西落了。
+
+然后我们再来实现画面中床的运动，我们尽量采用往复运动的方式，也是使用三角函数：
+
+```js
+const Bed = () => {
+  const mesh = useRef();
+  const bed = useLoader(GLTFLoader, "/vrlab/bed.glb");
+  useFrame(({ clock }) => {
+    const a = clock.getElapsedTime() / 2;
+    mesh.current.position.z = Math.sin(a) * 2;
+  })
+  return (
+    <primitive
+      ref={mesh}
+      object={bed.scene}
+      scale={0.03}
+      position={[4, 2.1, -5]}
+    />
+  );
+}
+```

@@ -10,10 +10,13 @@ function App() {
             <a href="#lab1">
               Lab1
             </a>
-            
             &nbsp;&nbsp;
             <a href="#lab2">
               Lab2
+            </a>
+            &nbsp;&nbsp;
+            <a href="#lab3">
+              Lab3
             </a>
           </div>
           <br></br>
